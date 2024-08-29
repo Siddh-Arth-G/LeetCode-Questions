@@ -6,9 +6,14 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0081-search-in-rotated-sorted-array-ii) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0153-find-minimum-in-rotated-sorted-array) |
+| [2042-maximum-product-difference-between-two-pairs](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/2042-maximum-product-difference-between-two-pairs) |
 ## Binary Search
 |  |
 | ------- |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0081-search-in-rotated-sorted-array-ii) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0153-find-minimum-in-rotated-sorted-array) |
+## Sorting
+|  |
+| ------- |
+| [2042-maximum-product-difference-between-two-pairs](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/2042-maximum-product-difference-between-two-pairs) |
 <!---LeetCode Topics End-->
