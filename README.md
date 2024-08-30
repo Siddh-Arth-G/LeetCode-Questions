@@ -21,4 +21,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0051-n-queens](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0051-n-queens) |
+## String
+|  |
+| ------- |
+| [2168-check-if-numbers-are-ascending-in-a-sentence](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/2168-check-if-numbers-are-ascending-in-a-sentence) |
 <!---LeetCode Topics End-->
