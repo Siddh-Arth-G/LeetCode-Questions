@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/maximum-product-difference-between-two-pairs">2042. Maximum Product Difference Between Two Pairs</a></h2><h3>Easy</h3><hr><p>The <strong>product difference</strong> between two pairs <code>(a, b)</code> and <code>(c, d)</code> is defined as <code>(a * b) - (c * d)</code>.</p>
+<h2><a href="https://leetcode.com/problems/maximum-product-difference-between-two-pairs">1913. Maximum Product Difference Between Two Pairs</a></h2><h3>Easy</h3><hr><p>The <strong>product difference</strong> between two pairs <code>(a, b)</code> and <code>(c, d)</code> is defined as <code>(a * b) - (c * d)</code>.</p>
 
 <ul>
 	<li>For example, the product difference between <code>(5, 6)</code> and <code>(2, 7)</code> is <code>(5 * 6) - (2 * 7) = 16</code>.</li>
