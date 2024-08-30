@@ -4,6 +4,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0051-n-queens](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0051-n-queens) |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0081-search-in-rotated-sorted-array-ii) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [2042-maximum-product-difference-between-two-pairs](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/2042-maximum-product-difference-between-two-pairs) |
@@ -16,4 +17,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [2042-maximum-product-difference-between-two-pairs](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/2042-maximum-product-difference-between-two-pairs) |
+## Backtracking
+|  |
+| ------- |
+| [0051-n-queens](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0051-n-queens) |
 <!---LeetCode Topics End-->
