@@ -25,4 +25,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [2168-check-if-numbers-are-ascending-in-a-sentence](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/2168-check-if-numbers-are-ascending-in-a-sentence) |
+## Math
+|  |
+| ------- |
+| [0007-reverse-integer](https://github.com/Siddh-Arth-G/LeetCode-Questions/tree/master/0007-reverse-integer) |
 <!---LeetCode Topics End-->
