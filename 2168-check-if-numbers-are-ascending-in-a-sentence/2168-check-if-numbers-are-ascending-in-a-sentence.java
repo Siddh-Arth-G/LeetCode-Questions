@@ -1,24 +1,32 @@
 class Solution {
-    public boolean areNumbersAscending(String s) {
-        List<Integer> ls= new ArrayList<>();
-
-        // get the every Integer to the list ls
-        String[] t=s.split(" ");
-        for(String word: t){
-
-            try{
-                int num= Integer.parseInt(word);
-                ls.add(num);
+    public boolean areNumbersAscending(String s) 
+    {
+        int prev = -1;
+        int l = s.length();
+        
+        for (int i = 0; i < l;) 
+        {
+            if (Character.isDigit(s.charAt(i))) 
+            {
+                int n = 0;
+                while (i < l && Character.isDigit(s.charAt(i))) 
+                {
+                    n = n * 10 + (s.charAt(i) - '0');
+                    i++;
+                }
+                
+                if (n <= prev) 
+                {
+                    return false; 
+                }
+                prev = n; 
+            } 
+            else 
+            {
+                i++;
             }
-            catch(NumberFormatException e){
-
-            }
-
         }
-
-        for(int i=0;i<ls.size()-1;i++){
-            if(ls.get(i)>=ls.get(i+1)) return false;
-        }
-        return true;
+        
+        return true; 
     }
 }
