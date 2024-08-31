@@ -6,8 +6,9 @@ class Solution {
                 int sum = 0;
                 if (i != j) {
                     sum = prices[i]+prices[j];
-                    if (sum < min && sum <= money)
-                    min = sum;
+                    if (sum < min && sum <= money){
+                        min = sum;
+                    }
                 }
             }
         }
