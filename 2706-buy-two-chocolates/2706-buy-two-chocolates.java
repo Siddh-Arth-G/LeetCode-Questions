@@ -11,7 +11,7 @@ class Solution {
                 }
             }
         }
-        if (min != 2147483647)
+        if (min != Integer.MAX_VALUE)
         return money-min;
         return money;
     }
