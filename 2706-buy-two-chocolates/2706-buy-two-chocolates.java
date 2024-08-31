@@ -11,8 +11,9 @@ class Solution {
                 }
             }
         }
-        if (min != Integer.MAX_VALUE)
-        return money-min;
+        if (min != Integer.MAX_VALUE){
+            return money-min;
+        }
         return money;
     }
 }
