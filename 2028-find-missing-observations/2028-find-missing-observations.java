@@ -1,23 +1,23 @@
 class Solution {
+
     public int[] missingRolls(int[] rolls, int mean, int n) {
+        int[] ret = new int[n];
         int sum = 0;
-        for(int i=0; i<rolls.length; i++){
-            sum += rolls[i];
+        for (int i : rolls) {
+            sum += i;
         }
-        int remainingNumbers = (mean*(rolls.length+n)) - sum;
-        if(remainingNumbers > 6*n || remainingNumbers < n){
+        int missingSum = mean * (n + rolls.length) - sum;
+        if (missingSum > 6*n || missingSum < n) {
             return new int[]{};
         }
-        int[] missingRolls = new int[n];
-        int average = remainingNumbers/n;
-        int remainder = remainingNumbers % n;
-        for(int i=0; i<n; i++){
-            missingRolls[i] = average;
-            if(remainder > 0){
-                missingRolls[i]++;
-                remainder--;
-            }
+        int expectedAvg = missingSum/n, remainder = missingSum%n;
+
+        for (int i = 0; i < remainder; i++) {
+            ret[i] = expectedAvg + 1;
         }
-        return missingRolls;
+        for (int i = remainder; i < n;i++) {
+            ret[i] = expectedAvg;
+        }
+        return ret;
     }
 }
