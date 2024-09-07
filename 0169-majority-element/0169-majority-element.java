@@ -1,18 +1,14 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        Set<Integer> set = new HashSet<>();
         for(int i=0; i<nums.length; i++){
-            set.add(nums[i]);
-        }
-        for(Integer val: set){
-            int count = 0;
-            for(int i=0; i<nums.length; i++){
-                if(val == nums[i]){
+            int count = 1;
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[i] == nums[j]){
                     count++;
                 }
             }
             if(count > nums.length/2){
-                return val;
+                return nums[i];
             }
         }
         return -1;
