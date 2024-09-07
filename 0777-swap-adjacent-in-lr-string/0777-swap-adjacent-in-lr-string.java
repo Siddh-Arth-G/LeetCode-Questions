@@ -1,9 +1,5 @@
 class Solution {
     public boolean canTransform(String start, String end) {
-        if (start.length() != end.length()) {
-            return false;
-        }
-
         int i = 0, j = 0;
         int n = start.length();
 
