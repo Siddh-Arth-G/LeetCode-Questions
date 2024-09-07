@@ -1,15 +1,14 @@
 class Solution {
     public String shiftingLetters(String s, int[] shifts) {
-        // Convert the string to a char array for easier manipulation
-        char[] chars = s.toCharArray();
-        int totalShift = 0;
+        char[] ans = s.toCharArray();
 
-        // Traverse shifts array from the end
-        for (int i = shifts.length - 1; i >= 0; i--) {
-            totalShift = (totalShift + shifts[i]) % 26; // Accumulate shifts and use modulo 26 to prevent overflow
-            chars[i] = (char) ((chars[i] - 'a' + totalShift) % 26 + 'a'); // Shift the character
+        long sum = 0;
+
+        for (int i = shifts.length - 1; i > - 1; i--) {
+            sum += shifts[i];
+           ans[i] = (char)(((ans[i] - 'a' + sum ) % 26) + 'a');
         }
 
-        return new String(chars); // Return the modified string
+        return String.valueOf(ans);
     }
 }
