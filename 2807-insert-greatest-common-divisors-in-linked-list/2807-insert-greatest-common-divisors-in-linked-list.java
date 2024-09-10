@@ -9,23 +9,32 @@
  * }
  */
 class Solution {
-    private int gcd(int a, int b){
-        if(b==0){
-            return a;
+    public int gcd(int a, int b){
+        if(a == 1 || b==1){
+            return 1;
         }
-        return gcd(b, a%b);
+        while(b !=0){
+            int rem = a % b;
+            a = b;
+            b= rem;
+        }
+        return a;
     }
     public ListNode insertGreatestCommonDivisors(ListNode head) {
-        ListNode temp = head;
-        while(temp != null && temp.next != null){
-            int val1 = temp.val;
-            int val2 = temp.next.val;
-            int gcd = gcd(val1, val2);
-            ListNode current = new ListNode(gcd);
-            current.next = temp.next;
-            temp.next = current;
-            temp = current.next;
+        if(head.next == null){
+            return head;
         }
+        ListNode temp = head;
+        ListNode temp1 = head.next;
+        while(temp1 !=null){
+            int num = gcd(temp.val,temp1.val);
+            ListNode a = new ListNode(num);
+            temp.next = a;
+            a.next = temp1;
+            temp = temp1;
+            temp1=temp1.next;
+        }
+
         return head;
     }
 }
