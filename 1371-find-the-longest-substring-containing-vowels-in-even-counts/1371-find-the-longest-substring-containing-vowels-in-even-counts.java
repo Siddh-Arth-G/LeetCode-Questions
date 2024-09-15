@@ -1,20 +1,21 @@
 class Solution {
+    static boolean[] isVowel = new boolean[]{true, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false};
+    static int[] xor = new int[]{1, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0};
     public int findTheLongestSubstring(String s) {
-        int xor = 0;
-        int res = 0;
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, -1);
-        for(int i=0; i<s.length(); i++){
-            char c = s.charAt(i);
-            if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u'){
-                xor ^= c;
-            }
-            if(map.containsKey(xor)){
-                res = Math.max(res, i-map.get(xor));
-            }else{
-                map.put(xor, i);
+        int[] earliest = new int[32];
+        Arrays.fill(earliest, -2);
+        earliest[0] = -1;
+        char[] cs = s.toCharArray();
+        int key = 0;
+        int longest = 0;
+        for (int i = 0; i < cs.length; i++) {
+            if (isVowel[cs[i] - 'a']) key ^= xor[cs[i] - 'a'];
+            if (earliest[key] == -2) earliest[key] = i;
+            else {
+                int len = i - earliest[key];
+                if (len > longest) longest = len;
             }
         }
-        return res;
+        return longest;
     }
 }
