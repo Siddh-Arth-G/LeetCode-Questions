@@ -1,50 +1,98 @@
+public class Node {
+    String key;
+    int count;
+    Node next;
+    Node prev;
+
+    public Node(String s, int n) {
+        count = n;
+        key = s;
+        next = null;
+        prev = null;
+    }
+}
 class AllOne {
-    private final Map<String, Integer> stringCount;
-    private final TreeMap<Integer, Set<String>> bucketMap;
+    private HashMap<String, Node> nodes = new HashMap();
+    Node head;
+    Node tail;
+
     public AllOne() {
-        stringCount = new HashMap<>();
-        bucketMap = new TreeMap<>();
+        head = new Node("", -1);
+        tail = new Node("", Integer.MAX_VALUE);
+        head.next = tail;
+        tail.prev = head;
+    }
+
+    //b is directly after a
+    private void swap(Node a, Node b) {
+        Node t = b.next;
+        a.next = t;
+        t.prev = a;
+        b.next = a;
+        t = a.prev;
+        t.next = b;
+        a.prev = b;
+        b.prev = t;
+    }
+
+    private void delete(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        node.next = null;
+        node.prev = null;
+    }
+
+    private void updateInc(Node n) {
+        while (n.next != tail && n.count > n.next.count) {
+            swap(n, n.next);
+        }
+    }
+
+    private void updateDec(Node n) {
+        while (n.prev != head && n.count < n.prev.count) {
+            swap(n.prev, n);
+        }
     }
     
     public void inc(String key) {
-        int newCount = stringCount.merge(key, 1, Integer::sum);
-        removeFromOldBucket(key, newCount - 1);
-        addToNewBucket(key, newCount);
+        Node n = nodes.getOrDefault(key, new Node(key, 0));
+        int c = ++n.count;
+        //if not new key
+        if(c != 1){
+            if(c > tail.prev.count){
+                delete(n);
+                n.next = tail;
+                n.prev = tail.prev;
+                tail.prev.next = n;
+                tail.prev = n;
+            }else{
+                updateInc(n);
+            }
+        }else { //new key
+            nodes.put(key,n);
+            n.prev = head;
+            n.next = head.next;
+            head.next.prev = n;
+            head.next = n;
+        }
     }
     
     public void dec(String key) {
-        int newCount = stringCount.merge(key, -1, Integer::sum);
-        if (newCount == 0) {
-            stringCount.remove(key);
-        }
-        removeFromOldBucket(key, newCount + 1);
-        addToNewBucket(key, newCount);
-    }
-
-    private void removeFromOldBucket(String key, int bucketKey) {
-        if (bucketKey > 0) {
-            Set<String> oldBucket = bucketMap.get(bucketKey);
-            if (oldBucket.size() == 1) {
-                oldBucket.clear();
-                bucketMap.remove(bucketKey);
-            } else {
-                oldBucket.remove(key);
-            }
+        Node n = nodes.get(key);
+        if (--n.count == 0) {
+            nodes.remove(key);
+            delete(n);
+        } else {
+            updateDec(n);
         }
     }
-
-    private void addToNewBucket(String key, int bucketKey) {
-        if (bucketKey > 0) {
-            bucketMap.computeIfAbsent(bucketKey, k -> new HashSet<>()).add(key);
-        }
-    }
-
+    
     public String getMaxKey() {
-        return bucketMap.isEmpty() ? "" : bucketMap.lastEntry().getValue().iterator().next();
+        return head.next == tail ? "" : tail.prev.key;
     }
     
     public String getMinKey() {
-        return bucketMap.isEmpty() ? "" : bucketMap.firstEntry().getValue().iterator().next();
+        return head.next == tail ? "" : head.next.key;
     }
 }
 
