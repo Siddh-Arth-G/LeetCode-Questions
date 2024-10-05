@@ -49,11 +49,11 @@
 
 
 class Solution {
-    static{
-        for(int i = 0; i < 500; i++){
-            removeStars(" *");
-        }
-    }
+    // static{
+    //     for(int i = 0; i < 500; i++){
+    //         removeStars(" *");
+    //     }
+    // }
     public static String removeStars(String s) {
         int len = s.length();
         byte[] res = new byte[len];
