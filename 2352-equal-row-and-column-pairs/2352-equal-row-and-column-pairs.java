@@ -20,23 +20,47 @@
 
 
 
+// class Solution {
+//     public int equalPairs(int[][] grid) {
+//         int n = grid.length;
+//         int count = 0;
+//         Map<String, Integer> map = new HashMap<>();
+
+//         for(int[] row: grid){
+//             String rowStr = Arrays.toString(row);
+//             map.put(rowStr, map.getOrDefault(rowStr, 0)+1);
+//         }
+//         for(int j=0; j<n; j++){
+//             int[] col = new int[n];
+//             for(int i=0; i<n; i++){
+//                 col[i] = grid[i][j];
+//             }
+//             count += map.getOrDefault(Arrays.toString(col),0);
+//         }
+//         return count;
+//     }
+// }
+
+
+
+
+
 class Solution {
     public int equalPairs(int[][] grid) {
-        int n = grid.length;
-        int count = 0;
-        Map<String, Integer> map = new HashMap<>();
+        int pairs = 0;
+        int[] nums = new int[grid.length];
 
-        for(int[] row: grid){
-            String rowStr = Arrays.toString(row);
-            map.put(rowStr, map.getOrDefault(rowStr, 0)+1);
-        }
-        for(int j=0; j<n; j++){
-            int[] col = new int[n];
-            for(int i=0; i<n; i++){
-                col[i] = grid[i][j];
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                nums[j] = grid[j][i];
             }
-            count += map.getOrDefault(Arrays.toString(col),0);
+            for (int[] array : grid) {
+                if (Arrays.equals(array, nums)) {
+                    pairs++;
+                }
+            }
         }
-        return count;
+
+        return pairs;
     }
 }
